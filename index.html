@@ -45,12 +45,11 @@
     pointer-events: none;
     user-select: none;
   }
-  /* Soft side fades only when the screen is wider than the engraving (2000x1121) */
-  @media (min-aspect-ratio: 2000/1121) {
-    .engraving {
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
-              mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
-    }
+  /* Side fades grow only as the screen gets wider than the engraving (2000x1121 = 1.784:1) */
+  .engraving {
+    --fade: max(0px, min(14%, calc((100vw - 178.4vh) * 0.75)));
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 var(--fade), #000 calc(100% - var(--fade)), transparent 100%);
   }
   .frame {
     position: relative;
