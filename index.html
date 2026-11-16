@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nepal Natura</title>
+<meta name="description" content="Nepal Natura">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..400,0..100,0..1&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #FFFFFF; }
+  body {
+    color: #1A1A1A;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'SOFT' 100, 'WONK' 1;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+  }
+  /* Gold engraving, sized to the screen height and anchored to the bottom */
+  .engraving {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: auto;
+    max-width: none;
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+  /* Soft side fades only when the screen is wider than the engraving (2000x1121) */
+  @media (min-aspect-ratio: 2000/1121) {
+    .engraving {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+    }
+  }
+  .frame {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #C3A55F;
+    border-radius: 2px;
+  }
+  main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* Logo distance from the top grows with screen height */
+    padding: clamp(72px, 13vh, 240px) 24px 48px;
+  }
+  h1 { margin: 0; line-height: 0; }
+  .logo { display: block; width: 300px; max-width: 70vw; height: auto; }
+  footer {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    color: #3C372E;
+  }
+  footer p { margin: 0; line-height: 1.5; }
+  .legal { font-size: 13px; font-weight: 400; }
+  .copy { font-size: 12px; font-weight: 300; }
+</style>
+</head>
+<body>
+<div class="page">
+  <img class="engraving" src="assets/himalaya-gold.webp" alt="" aria-hidden="true" width="2000" height="1121">
+  <div class="frame">
+    <main>
+      <h1><img class="logo" src="assets/logo-nepal-natura.png" alt="Nepal Natura" width="1200" height="525"></h1>
+    </main>
+    <footer>
+      <p class="legal">Nepal Natura® es una marca registrada. Todos los derechos reservados.</p>
+      <p class="copy">© 2026 Nepal Natura S.L.</p>
+    </footer>
+  </div>
+</div>
+</body>
+</html>
